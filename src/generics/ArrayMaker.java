@@ -16,11 +16,15 @@ public class ArrayMaker<T> {
 
     @SuppressWarnings("unchecked")
     private T[] create() {
-        return (T[]) Array.newInstance(type, 10);
+        T[] ts = (T[]) Array.newInstance(type, 10);
+        return ts;
     }
 
-    public static void main(String[] args) {
-        ArrayMaker arrayMaker = new ArrayMaker(String.class);
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+        ArrayMaker<String> arrayMaker = new ArrayMaker<>(String.class);
+        System.out.println(arrayMaker.type);
+        System.out.println(arrayMaker.type.isInstance("234"));
+        System.out.println(arrayMaker.type.newInstance().getClass().getSimpleName());
         System.out.println(Arrays.toString(arrayMaker.create()));
     }
 
