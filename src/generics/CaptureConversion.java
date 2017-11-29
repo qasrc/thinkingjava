@@ -1,5 +1,6 @@
 package generics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,18 @@ public class CaptureConversion {
 
         Holder wildvarded = new Holder<>(1.0);
         f2(wildvarded);
+
+        Holder<Integer> integerHolder = new Holder<>();
+        int a = 2;
+        integerHolder.setValue(a);
+        int b = integerHolder.getValue();
+        Integer c = 3;
+        int[] ints = new int[3];
+        ints[0] = c;
+        List<Integer> integers = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            ints[i] = integers.get(i);
+        }
     }
 
     public void test(Holder<List<?>> holder) {
