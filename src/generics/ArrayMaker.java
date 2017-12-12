@@ -28,4 +28,15 @@ public class ArrayMaker<T> {
         System.out.println(Arrays.toString(arrayMaker.create()));
     }
 
+    public void add() {
+        System.out.println("------");
+    }
+
+    /**
+     * 测试添加方法
+     */
+    public void addMethod() {
+        System.out.println("--------------------------------------");
+    }
+
 }
