@@ -34,4 +34,15 @@ public class ArrayMaker<T> {
 
     }
 
+    public void add() {
+        System.out.println("------");
+    }
+
+    /**
+     * 测试添加方法
+     */
+    public void addMethod() {
+        System.out.println("--------------------------------------");
+    }
+
 }
