@@ -28,4 +28,10 @@ public class ArrayMaker<T> {
         System.out.println(Arrays.toString(arrayMaker.create()));
     }
 
+
+    public void method() {
+        System.out.println("000");
+
+    }
+
 }
