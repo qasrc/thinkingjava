@@ -13,6 +13,7 @@ public class ThreeDWithNew {
         System.out.println("test");
         System.out.println("123");
         System.out.println("345");
+        System.out.println("678");
         System.out.println("0000");
 
     }
