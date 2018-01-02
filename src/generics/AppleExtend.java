@@ -6,6 +6,11 @@ package generics;
  */
 public class AppleExtend extends Apple {
 
+    public AppleExtend(String color, Integer size) {
+        super(color, size);
+    }
+
+
     @Override
     public Jonathan test(Apple apple) {
         return null;
