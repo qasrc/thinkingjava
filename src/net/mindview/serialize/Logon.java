@@ -10,9 +10,11 @@ import java.util.Date;
 public class Logon implements Serializable {
     private Date date;
     private String username;
+    private static String flag;
     private transient String password;
 
     public Logon(String username, String password) {
+        flag = "hello world";
         date = new Date();
         this.username = username;
         this.password = password;
@@ -22,6 +24,7 @@ public class Logon implements Serializable {
     public String toString() {
         return "Logon{" +
                 "date=" + date +
+                ",flag=" + flag+
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
@@ -32,12 +35,16 @@ public class Logon implements Serializable {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("/tmp/logon.out"));
         System.out.println("save object");
         System.out.println(logon);
+        Logon.serializeStaticStatue(objectOutputStream);
         objectOutputStream.writeObject(logon);
-        System.out.println("delay......");
-        Thread.sleep(2000);
-        System.out.println("recover object");
-        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("/tmp/logon.out"));
-        Logon result = (Logon) objectInputStream.readObject();
-        System.out.println(result);
+
+    }
+
+    public static void serializeStaticStatue(ObjectOutputStream outputStream) throws IOException {
+        outputStream.writeObject(flag);
+    }
+
+    public static void deSerializeStaticStatue(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+        flag = (String) inputStream.readObject();
     }
 }
